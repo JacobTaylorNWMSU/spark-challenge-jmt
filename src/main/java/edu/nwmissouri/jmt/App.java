@@ -18,12 +18,6 @@ public final class App {
     private App() {
     }
 
-    /**
-     * Says hello to the world.
-     * 
-     * @param args The arguments of the program.
-     */
-
     private static void process(String fileName) {
         SparkConf sparkConf = new SparkConf().setMaster("local").setAppName("Challenge");
 
@@ -45,10 +39,16 @@ public final class App {
         output.saveAsTextFile(outputDir);
         sparkContext.close();
     }
+    
+        /**
+     * Says hello to the world.
+     * 
+     * @param args The arguments of the program.
+     */
 
     public static void main(String[] args) {
         //System.out.println("Hello World!");
-        if (args.length == 0){
+        if (args.length != 1){
             System.out.println("No files provided.");
             System.exit(0);
         }
